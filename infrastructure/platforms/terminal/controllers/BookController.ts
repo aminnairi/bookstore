@@ -21,7 +21,13 @@ export class BookController {
       return;
     }
 
-    printTable(books);
+    printTable(books.map(book => {
+      return {
+        "ISBN": book.isbn.value,
+        "Titre": book.title,
+        "Copies disponibles": book.availableCopies
+      };
+    }));
   }
 
   public async addBook() {
