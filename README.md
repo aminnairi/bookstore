@@ -26,3 +26,9 @@ npm -w @bookstore/terminal start
 ```bash
 npm -w @bookstore/express start
 ```
+
+### React
+
+```bash
+npm -w @bookstore/react run dev
+```
