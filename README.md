@@ -24,6 +24,7 @@ npm -w @bookstore/terminal start
 ### Express
 
 ```bash
+npx -w @bookstore/express drizzle-kit migrate
 npm -w @bookstore/express start
 ```
 
