@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "name": "@bookstore/domain",
+  "description": "Domain for Bookstore",
+  "version": "0.1.0"
+}

@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "name": "@bookstore/adapters",
+  "description": "Adapters for Bookstore",
+  "version": "0.1.0"
+}

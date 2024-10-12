@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "name": "@bookstore/application",
+  "description": "Application for Bookstore",
+  "version": "0.1.0"
+}
