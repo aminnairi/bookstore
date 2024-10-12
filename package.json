@@ -5,6 +5,7 @@
     "domain",
     "infrastructure/adapters",
     "infrastructure/platforms/terminal",
-    "infrastructure/platforms/express"
+    "infrastructure/platforms/express",
+    "infrastructure/platforms/react"
   ]
 }
