@@ -14,7 +14,13 @@ export const createBooksRouter = (bookRepository: BookRepository, bookNotificati
       const listBooks = new ListBooks(bookRepository);
       const books = await listBooks.execute();
 
-      response.json(books);
+      response.json(books.map(book => {
+        return {
+          isbn: book.isbn.value,
+          title: book.title,
+          availableCopies: book.availableCopies
+        }
+      }));
     } catch (error) {
       response.status(500).json({
         error: String(error)

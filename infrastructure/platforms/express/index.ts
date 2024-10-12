@@ -1,29 +1,20 @@
 import express from "express";
-import { open } from "sqlite";
-import { Database } from "sqlite3";
-import { SqliteBookRepository } from "./adapters/repositories/SqliteBookRepository";
+import { DrizzleSqliteBookRepository } from "./adapters/repositories/DrizzleSqliteBookRepository";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { ResendBookNotificationService } from "./adapters/services/ResendBookNotificationService";
 import { Resend } from "resend";
 import { createBooksRouter } from "./routers/books";
+import { database } from "./database";
 
 const main = async () => {
   const port = 8000;
   const host = "0.0.0.0";
   const server = express();
 
-  const database = await open({
-    filename: "bookstore.sqlite",
-    driver: Database
-  });
-
-  await database.exec("DROP TABLE IF EXISTS books;");
-  await database.exec("CREATE TABLE books(isbn TEXT PRIMARY KEY, title TEXT NOT NULL, available_copies INTEGER NOT NULL);");
-  
   const resend = new Resend("RESEND_API_KEY_HERE_DO_NOT_COMPROMISE_!!!!!");
 
-  const bookRepository = new SqliteBookRepository(database);
+  const bookRepository = new DrizzleSqliteBookRepository(database);
   const bookNotificationService = new ResendBookNotificationService(resend);
 
   server.use(cors({ origin: "*" }));
