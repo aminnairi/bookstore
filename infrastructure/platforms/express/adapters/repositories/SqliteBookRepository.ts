@@ -12,6 +12,12 @@ export class SqliteBookRepository implements BookRepository {
   public async getBooks(): Promise<Book[]> {
     const books = await this.database.all("SELECT * FROM books;");
 
-    return books;
+    return books.map(book => {
+      return new Book(
+        book.isbn,
+        book.title,
+        book.available_copies
+      );
+    });
   }
 }
